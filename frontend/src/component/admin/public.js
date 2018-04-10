@@ -5,6 +5,7 @@ import { message } from 'antd';
 import {requestAddNews} from "../../api/news/post/add";
 const { TextArea } = Input;
 const FormItem = Form.Item;
+
 class NewsPublic extends Component{
     handleSubmit = (e) => {
         e.preventDefault();
@@ -12,7 +13,7 @@ class NewsPublic extends Component{
             if (!err) {
                 requestAddNews(values).then((res) => {
                     res.data.status == 0?message.success(res.data.msg) : message.error(res.data.msg);
-                    this.props.history.push("/admin/index");
+                    this.props.history.push("/admin/news/all");
                 })
             }
         });

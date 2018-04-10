@@ -7,7 +7,8 @@ let connection = mysql.createConnection({
     password: '',     //数据库密码
     port: '3306',
     database: 'article', //数据库名称
-    charset: 'UTF8_GENERAL_CI' //数据库编码
+    charset: 'UTF8_GENERAL_CI', //数据库编码
+    useConnectionPooling: true
 });
 
 module.exports = connection;

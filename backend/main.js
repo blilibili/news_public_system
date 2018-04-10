@@ -1,6 +1,8 @@
 let app = require('express')();
 let addNews = require('./route/news/add');
-let queryAllNews = require('./route/news/queryAll')
+let queryAllNews = require('./route/news/queryAll');
+let queryOneById = require('./route/news/queryOneDataById');
+let delById = require('./route/news/del');
 let bodyParser = require('body-parser');
 app.use(bodyParser.json({limit: '1mb'}));  //body-parser 解析json格式数据
 app.use(bodyParser.urlencoded({            //此项必须在 bodyParser.json 下面,为参数编码
@@ -25,5 +27,8 @@ app.post('/users/login' , (req , res) => {
 app.post('/news/post/add' , addNews);
 //查询所有文章
 app.get('/news/get/queryAll' , queryAllNews);
-
+//根据id查询一个文章
+app.get('/news/get/queryOneById' , queryOneById);
+//删除新闻
+app.post('/news/post/del' , delById);
 app.listen(3001);
